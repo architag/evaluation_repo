@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#container {
+  display: flex;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;  
+}
+
+#row1 {
+  text-align: center;
+  width: 700px;
+  padding: 10px 10px 7px 10px;
+  margin-left: 110px;
+}
+
+#row2, #row3 {
+  text-align: center;
+  display: flex;
+  width: 790px;
+  padding: 0 60px;
+}
+
+#heading1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(51, 51, 51);
+  letter-spacing: 0.001em;
+}
+
+.left_col {
+  text-align: center;
+  margin-left: 83px;
+  width: 310px;
+}
+
+.right_col {
+  text-align: center;
+  margin-left: 30px;
+  width: 310px;
+}
+
+#block3, #block4 {
+  padding-top: 45px;
+}
+
+#img1 {
+  width: 63px;
+}
+
+#img2 {
+  width: 85px;
+}
+
+#img3, #img4 {
+  width: 70px;
+}
+
+.features {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(48, 50, 52);
+  letter-spacing: 0.064em;
+}
+
+.feature_description {
+  line-height: 1.3;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgb(136, 136, 136);
+  letter-spacing: 0.006em;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(55, 123, 181);
+}
+
+form {
+  box-shadow: 0px 0px 40px 2px rgba(0, 0, 0, .3);
+  margin-top: 40px;
+  width: 380px;
+  height: 477px;
+}
+
+#form_heading {
+  padding: 40px 0 0 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+}
+
+.input_field {
+  padding: 15px 16px;
+  margin: 10px 40px;
+  width: 265px;
+  height: 19px;
+  font-size: 16px;
+  border: 1px solid rgb(225, 225, 225);
+}
+
+#form_text1 {
+  margin: 14px 0 12px 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(51, 51, 51);
+}
+
+#form_text2 {
+  text-align: center;
+  margin-top: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(136, 136, 136);
+}
+
+#choose {
+  margin-left: 38px;
+}
+
+.options {
+  display: none;
+}
+
+.opt {
+  font-weight: 500;
+  color: rgb(153, 153, 153);
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  width: 90px;
+  border: 1px solid rgb(225, 225, 225);
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  margin-left: 3px;
+}
+
+input[type="radio"]:checked + label {
+  background-color: rgb(42, 172, 177);
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  margin: 5px 40px;
+  border-style: none;
+  border-radius: 6px;
+  width: 302px;
+  height: 58px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(42, 172, 177);
+}
