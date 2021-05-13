@@ -1,24 +1,18 @@
 class String
   def palindrome?
-    if self == self.reverse
-      return true
-    else
-      return false
-    end
+    self == self.reverse
   end
 end
 
-empty_string = true
-while empty_string
+input = ARGV[0]
+while !input || input.length == 0
   puts "Please provide an input"
   input = gets
   input.gsub!("\n", "")
-  if input.length != 0
-    empty_string = false
-    if input.palindrome?
-      puts "Input string is a Palindrome"
-    else
-      puts "Input string is not a Palindrome"
-    end
-  end
+end
+
+if input.palindrome?
+  puts "Input string is a Palindrome"
+else
+  puts "Input string is not a Palindrome"
 end

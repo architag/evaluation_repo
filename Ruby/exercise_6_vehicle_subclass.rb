@@ -3,6 +3,7 @@ class Vehicle
     @name = name
     @price = price
   end
+
   def to_s
     "Name: #{@name} \nPrice: #{@price}"
   end
@@ -14,9 +15,11 @@ class Bike < Vehicle
     @dealer = dealer
     @percent_price_increase = percent_price_increase
   end
+
   def price_increase
     @price *= 1 + (@percent_price_increase/100)
   end
+
   def printDetails
     puts "Bike Name: #{@name}"
     puts "Bike Price: #{@price}"
