@@ -7,8 +7,7 @@ end
 input = ARGV[0]
 while !input || input.length == 0
   puts "Please provide an input"
-  input = gets
-  input.gsub!("\n", "")
+  input = gets.chomp
 end
 
 if input.palindrome?

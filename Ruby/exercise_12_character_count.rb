@@ -18,6 +18,6 @@ class String
 end
 
 puts "Please provide an input"
-input = gets
-input.gsub!("\n", "")
+input = gets.chomp
+input.gsub!(/"/, "")
 puts input.charCount()
