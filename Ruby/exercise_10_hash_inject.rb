@@ -22,9 +22,8 @@ end
 input = ARGV[0].dup
 arr = Array.new()
 
-input.gsub!(/\[|\]/, "")
+input.gsub!(/\[|\]|"|'/, "")
 input.split(',').each do |var|
-  var.gsub!(/"|'/, "")
   arr << var
 end
 
