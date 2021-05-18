@@ -7,7 +7,7 @@ end
 
 begin
   input = Integer(ARGV[0])
-  raise "Negative number entered" if input < 0
+  raise ArgumentError, "Negative number entered" if input < 0
   p factorial(input)
 rescue Exception => e  
   puts e.message

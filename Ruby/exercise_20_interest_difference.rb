@@ -9,8 +9,7 @@ class Interest
     rate = 0.1
     comp = (@principal*(1+rate)**@time)
     si = (@principal*(1+rate*@time))
-    diff = (comp - si).round(2)
-    diff
+    (comp - si).round(2)
   end
 end
 
