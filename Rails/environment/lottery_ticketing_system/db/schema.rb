@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_190736) do
+ActiveRecord::Schema.define(version: 2021_07_01_092259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,15 @@ ActiveRecord::Schema.define(version: 2021_06_24_190736) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "person_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "name"
-    t.date "last_won_on"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -53,26 +59,52 @@ ActiveRecord::Schema.define(version: 2021_06_24_190736) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "last_won_on"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "type"
-    t.integer "ticket_id"
-    t.integer "customer_id"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "purchases", force: :cascade do |t|
     t.integer "customer_id"
-    t.date "expiration_date"
-    t.string "prize_type"
+    t.integer "ticket_id"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+  end
+
+  create_table "tickets", force: :cascade do |t|
     t.string "receipt_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_valid"
+    t.integer "prize_type"
+    t.integer "position_won", default: 0
+    t.datetime "expiration_date"
+    t.integer "customer_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "ticket_id"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

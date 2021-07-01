@@ -1,9 +1,7 @@
 class CreateImages < ActiveRecord::Migration[6.1]
   def change
     create_table :images do |t|
-      t.string :type
-      t.integer :ticket_id
-      t.integer :customer_id
+      t.references :imageable, polymorphic: true
 
       t.timestamps
     end
