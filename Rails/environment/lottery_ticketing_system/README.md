@@ -21,38 +21,37 @@ lottery ticket booking system:
 ## MODEL SCHEMA
 **User Model**
 
-    has_one :user_image
-    has_many :tickets
+    has_one :image, as: :imageable
+    has_many :purchases
+    has_many :tickets, through: :purchases
     name (string)
     email (string)
-    password_digest (string)
-    last_won_on (date)
+    last_won_on (datetime)
 
 
 **Ticket Model**
 
-    has_one :ticket_image
-    belongs_to :user
+    has_one :image, as: :imageable
+    has_one :purchase
+    has_one :customer, through: :purchase
     user_id (integer)
-    valid (boolean)
-    expiration_date (date)
-    prize_type (string)
+    is_valid (boolean)
+    expiration_date (datetime)
+    prize_type (integer) (using enums)
+    position_won (integer)
     receipt_no (string)
 
 
+**Purchase Model**
+
+    belongs_to :customer
+    belongs_to :ticket
+    customer_id (integer)
+    ticket_id (integer)
+    status (integer) (using enums)
+    
+
 **Image Model**
 
-    type (string)
     has_one_attached :image
-
-
-**Ticket_Image Model < Image Model**
-
-    belongs_to :ticket
-    ticket_id (integer)
-
-
-**User_Image Model < Image Model**
-
-    belongs_to :user
-    user_id (integer)
+    imageable (references), polymorphic: true
