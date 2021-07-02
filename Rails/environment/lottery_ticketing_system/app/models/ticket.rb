@@ -1,5 +1,6 @@
 class Ticket < ApplicationRecord
   has_one :image, as: :imageable
-  belongs_to :customer
+  has_one :purchase
+  has_one :customer, through: :purchase
   enum prize_type: [:cash, :utilities]
 end
