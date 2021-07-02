@@ -6,4 +6,5 @@ class Customer < ApplicationRecord
   has_many :tickets, through: :purchases
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :image, presence: true
 end
