@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_083908) do
+ActiveRecord::Schema.define(version: 2021_07_01_082252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2021_07_03_083908) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.boolean "verified", default: false
     t.string "authentication_token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -70,17 +70,18 @@ ActiveRecord::Schema.define(version: 2021_07_03_083908) do
   create_table "purchases", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "ticket_id"
-    t.integer "status"
+    t.integer "status", default: 0
+    t.string "receipt_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.boolean "is_valid"
+    t.string "type"
+    t.boolean "is_valid", default: true
     t.datetime "expiration_date"
-    t.integer "prize_type"
     t.integer "position_won", default: 0
-    t.string "receipt_no"
+    t.string "ticket_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

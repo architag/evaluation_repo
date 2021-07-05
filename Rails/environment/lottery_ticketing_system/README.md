@@ -19,7 +19,7 @@ lottery ticket booking system:
         
 
 ## MODEL SCHEMA
-**User Model**
+**Customer Model**
 
     has_one :image, as: :imageable
     has_many :purchases
@@ -27,6 +27,7 @@ lottery ticket booking system:
     name (string)
     email (string)
     last_won_on (datetime)
+    authentication_token (string)
 
 
 **Ticket Model**
@@ -34,12 +35,22 @@ lottery ticket booking system:
     has_one :image, as: :imageable
     has_one :purchase
     has_one :customer, through: :purchase
-    user_id (integer)
+    customer_id (integer)
+    type (string)
     is_valid (boolean)
     expiration_date (datetime)
-    prize_type (integer) (using enums)
     position_won (integer)
-    receipt_no (string)
+    ticket_no (string)
+
+
+**Cash Ticket Model**
+  
+    CashTicket < Ticket
+    
+
+**Utility Ticket Model**
+  
+    Utility Ticket < Ticket
 
 
 **Purchase Model**
@@ -49,6 +60,7 @@ lottery ticket booking system:
     customer_id (integer)
     ticket_id (integer)
     status (integer) (using enums)
+    receipt_no (string)
     
 
 **Image Model**

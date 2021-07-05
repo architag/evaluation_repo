@@ -1,0 +1,2 @@
+class UtilityTicket < Ticket
+end
