@@ -86,6 +86,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    declarative (0.0.20)
+    declarative-option (0.1.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -122,6 +124,10 @@ GEM
       mustermann-grape (~> 1.0.0)
       rack (>= 1.3.0)
       rack-accept
+    grape-roar (0.4.1)
+      grape
+      multi_json
+      roar (~> 1.1.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
@@ -144,6 +150,7 @@ GEM
     mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.4.2)
+    multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.0.1)
@@ -198,9 +205,15 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    roar (1.1.0)
+      representable (~> 3.0.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
     ruby2_keywords (0.0.4)
@@ -238,6 +251,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uber (0.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -272,6 +286,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   grape
+  grape-roar
   image_processing (= 1.9.3)
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -280,6 +295,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.2)
+  roar
   sass-rails (>= 6)
   selenium-webdriver
   simple_token_authentication
