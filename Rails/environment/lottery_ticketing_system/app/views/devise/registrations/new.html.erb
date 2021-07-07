@@ -27,9 +27,8 @@
   </div>
 
   <div class="field">
-    <%= fields_for :image, resource.image do |f2| %>
-      <%= f2.label :image_file %><br />
-      <%= f2.file_field :image_file, :required => true%>
+    <%= f.fields_for :image do |ff| %>
+        <%= ff.file_field :image_file %>
     <% end %>
   </div>
 

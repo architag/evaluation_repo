@@ -1,0 +1,45 @@
+<h1>Profile</h1>
+<div class="profile_info">
+  <h2>Customer</h2>
+  <hr>
+    <div class="customer_data">
+      <div class="image_data">
+        <%= image_tag @customer.image.image_file if @customer.image.image_file.attached? %>
+      </div>
+      <div class="info">
+        <p>
+          Name: <%= @customer.name %><br>
+          Email: <%= @customer.email %><br>
+          Verification Status: <%= @customer.verified %><br>
+          Email: <%= @customer.email %><br> 
+        </p>
+      </div>
+    </div>
+</div>
+<div class="profile_info">
+  <h2>Tickets</h2>
+  <hr>
+    <div class="customer_data">
+      <div class="info">
+        <p>
+          <% if @customer.tickets.count != 0 %>
+            <% @customer.tickets.each do |ticket| %>
+              Ticket No: <%= ticket.ticket_no %><br>
+              Prize Type: <%= ticket.type %><br>
+              Expiration Date: <%= ticket.expiration_date %><br>
+              Position Won: 
+              <% if ticket.position_won != 0 %>
+                <%= ticket.position_won %>
+              <% else %>
+                Not Won Yet
+              <% end %>
+              <br> 
+              Valid: <%= ticket.is_valid %><br>
+            <% end %>
+          <% else %>
+            No Tickets Found
+          <% end %>
+        </p>
+      </div>
+    </div>
+</div>
