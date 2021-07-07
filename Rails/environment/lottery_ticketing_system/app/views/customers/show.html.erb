@@ -1,45 +1,42 @@
-<h1>Profile</h1>
 <div class="profile_info">
   <h2>Customer</h2>
   <hr>
-    <div class="customer_data">
-      <div class="image_data">
-        <%= image_tag @customer.image.customer_image if @customer.image.image_file.attached? %>
+    <div id="customer_data">
+      <div id="customer_image_data">
+        <%= image_tag @customer.image.display_image if @customer.image.image_file.attached? %>
       </div>
-      <div class="info">
-        <p>
-          Name: <%= @customer.name %><br>
-          Email: <%= @customer.email %><br>
-          Verification Status: <%= @customer.verified %><br>
-          Email: <%= @customer.email %><br> 
+      <div id="customer_info">
+        <p class="details">
+          <b>Name:</b> <%= @customer.name %><br>
+          <b>Email:</b> <%= @customer.email %><br>
+          <b>Status:</b> <%= verification_status(@customer.verified) %><br>
+          <b>Email:</b> <%= @customer.email %><br> 
         </p>
       </div>
     </div>
 </div>
+<br>
 <div class="profile_info">
   <h2>Tickets</h2>
   <hr>
-    <div class="customer_data">
-      <div class="info">
-        <p>
-          <% if @customer.tickets.count != 0 %>
-            <% @customer.tickets.each do |ticket| %>
-              Ticket No: <%= ticket.ticket_no %><br>
-              Prize Type: <%= ticket.type %><br>
-              Expiration Date: <%= ticket.expiration_date %><br>
-              Position Won: 
-              <% if ticket.position_won != 0 %>
-                <%= ticket.position_won %>
-              <% else %>
-                Not Won Yet
-              <% end %>
-              <br> 
-              Valid: <%= ticket.is_valid %><br>
-            <% end %>
-          <% else %>
-            No Tickets Found
-          <% end %>
-        </p>
-      </div>
+  <% if @customer.tickets.count != 0 %>
+    <div class="panels row">
+      <% @customer.tickets.each do |ticket| %>
+          <div class="panel panel-default col-md-3">
+            <div class="panel-img-top">
+              <%= image_tag ticket.image.display_image if ticket.image.image_file.attached? %>
+            </div>
+            <div class="panel-body details">
+              <b>Ticket No:</b> <%= ticket.ticket_no %><br>
+              <b>Prize Type:</b> <%= ticket.type.split("Ticket")[0] %><br>
+              <b>Expiration Date:</b> <%= ticket.expiration_date %><br>
+              <b>Position Won:</b> <%= position(ticket.position_won) %><br> 
+              <b>Status:</b> <%= validity_status(ticket.is_valid)%>
+            </div>
+          </div>
+      <% end %>
     </div>
+  <% else %>
+    No Tickets Found
+  <% end %>
 </div>

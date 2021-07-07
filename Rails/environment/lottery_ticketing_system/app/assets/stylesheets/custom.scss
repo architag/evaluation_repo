@@ -51,7 +51,23 @@ footer {
   }
 }
 
+/* PROFILE */
+#customer_data {
+  display: inline-flex;
+  margin: 0 20px 0 20px;
+}
 
+.details {
+  font-size: 16px;
+}
+
+.panel {
+  margin: 10px 48px;
+}
+
+.panel-img-top {
+  text-align: center;
+}
 
 /* FORMS */
 
