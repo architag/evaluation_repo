@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.fields_for :image do |ff| %>
-        <%= ff.file_field :image_file %>
+      <%= ff.file_field :image_file, accept: "image/jpeg,image/gif,image/png"%>
     <% end %>
   </div>
 
