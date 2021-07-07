@@ -11,10 +11,8 @@ class Ticket < ApplicationRecord
 
   protected
   def set_ticket_no
-    if self.type == "CashTicket"
-      self.ticket_no = "LT-CS-" + self.id.to_s
-    else
-      self.ticket_no = "LT-UL-" + self.id.to_s
-    end
+    ticket_no = (self.type == "CashTicket") ? "LT-CS-" : "LT-UL-"
+    ticket_no += (Ticket.count > 0) ? (Ticket.last.id + 1).to_s : "1"
+    self.ticket_no = ticket_no
   end
 end
