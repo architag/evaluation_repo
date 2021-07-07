@@ -12,17 +12,9 @@ class Ticket < ApplicationRecord
   protected
   def set_ticket_no
     if self.type == "CashTicket"
-      ticket = CashTicket.last
-      first_no = "TA-CS-1"
+      self.ticket_no = "LT-CS-" + self.id.to_s
     else
-      ticket = UtilityTicket.last
-      first_no = "TA-UL-1"
-    end
-    if ticket != nil
-      prev_no = ticket.ticket_no
-      self.ticket_no = prev_no[0..5] + (prev_no[6..].to_i + 1).to_s
-    else
-      self.ticket_no = first_no
+      self.ticket_no = "LT-UL-" + self.id.to_s
     end
   end
 end
