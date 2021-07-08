@@ -11,7 +11,11 @@ $gray-medium-light: #eaeaea;
 
 /* UNIVERSAL */
 body {
-  padding-top: 60px;
+  padding-top: 50px;
+}
+
+.jumbotron {
+  margin-top: 50px;
 }
 
 .center {
@@ -21,14 +25,18 @@ body {
   }
 }
 
+.alert {
+  margin-top: 10px;
+}
+
 /* HEADER */
 #logo {
-  padding-top: 5px;
+  padding-top: 6px;
 }
 
 /* FOOTER */
 footer {
-  margin-top: 45px;
+  margin: 45px 25px 20px 0;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
@@ -58,15 +66,24 @@ footer {
 }
 
 .details {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .panel {
-  margin: 10px 48px;
+  width: 250px;
+  margin: 10px 21px;
+  background-color: #d1d7d8;
 }
 
-.panel-img-top {
-  text-align: center;
+/* TICKETS */
+#buy-tickets {
+  display: inline-flex;
+}
+
+.ticket {
+  width: 350px;
+  margin: 20px 40px;
+  padding: 0 20px 20px 20px;
 }
 
 /* FORMS */

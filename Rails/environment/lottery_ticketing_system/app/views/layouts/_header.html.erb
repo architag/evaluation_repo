@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse"> 
   <div class="container">
     <nav>      
-      <%= link_to image_tag("logo.png", id:"logo", alt: "Random logo", width: "100"), root_path %> 
+      <%= link_to image_tag("logo.png", id:"logo", alt: "Random logo", height: "45"), root_path %> 
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span> 
@@ -14,7 +14,7 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", '#' %></li>
         <% if customer_signed_in? %>
-          <li><%= link_to "Buy Tickets", '#' %></li>
+          <li><%= link_to "Buy Tickets", buy_tickets_path %></li>
           <li class="dropdown">
             <a href="#" id="dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b>
             </a>

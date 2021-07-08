@@ -22,8 +22,8 @@
   <% if @customer.tickets.count != 0 %>
     <div class="panels row">
       <% @customer.tickets.each do |ticket| %>
-          <div class="panel panel-default col-md-3">
-            <div class="panel-img-top">
+          <div class="panel col-md-3">
+            <div class="panel-img-top center">
               <%= image_tag ticket.image.display_image if ticket.image.image_file.attached? %>
             </div>
             <div class="panel-body details">
