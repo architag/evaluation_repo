@@ -7,5 +7,5 @@ class Customer < ApplicationRecord
   has_many :tickets, through: :purchases
   validates :name, presence: true, length: { maximum: 50 }
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 end

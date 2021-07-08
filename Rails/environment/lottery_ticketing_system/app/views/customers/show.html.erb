@@ -9,7 +9,7 @@
         <p class="details">
           <b>Name:</b> <%= @customer.name %><br>
           <b>Email:</b> <%= @customer.email %><br>
-          <b>Status:</b> <%= verification_status(@customer.verified) %><br>
+          <b>Status:</b> Email Verified<br>
           <b>Last Won on:</b> <%= last_won(@customer.last_won_on) %><br> 
         </p>
       </div>
@@ -22,7 +22,7 @@
   <% if @tickets.count != 0 %>
     <div class="panels row">
       <% @tickets.each do |ticket| %>
-          <div class="panel col-md-3">
+          <div class="panel customer_tickets col-md-3">
             <div class="panel-img-top center">
               <%= image_tag ticket.image.display_image if ticket.image.image_file.attached? %>
             </div>
