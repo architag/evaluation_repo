@@ -3,6 +3,11 @@ module CustomersHelper
     status ? "Verified" : "Not Verified Yet"
   end
   
+  def last_won(last_won_on)
+    return "Never Won" if last_won_on == nil
+    last_won_on
+  end
+
   def validity_status(status)
     status ? "Valid" : "Not Valid"
   end

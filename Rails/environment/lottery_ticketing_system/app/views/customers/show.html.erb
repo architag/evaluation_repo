@@ -10,7 +10,7 @@
           <b>Name:</b> <%= @customer.name %><br>
           <b>Email:</b> <%= @customer.email %><br>
           <b>Status:</b> <%= verification_status(@customer.verified) %><br>
-          <b>Email:</b> <%= @customer.email %><br> 
+          <b>Last Won on:</b> <%= last_won(@customer.last_won_on) %><br> 
         </p>
       </div>
     </div>
