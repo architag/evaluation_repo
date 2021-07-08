@@ -73,6 +73,7 @@ footer {
   width: 250px;
   margin: 10px 21px;
   background-color: #d1d7d8;
+  border: 2px solid black;
 }
 
 /* TICKETS */
@@ -84,6 +85,11 @@ footer {
   width: 350px;
   margin: 20px 40px;
   padding: 0 20px 20px 20px;
+}
+
+/* PURCHASES */
+.table {
+  margin-top: 30px;
 }
 
 /* FORMS */

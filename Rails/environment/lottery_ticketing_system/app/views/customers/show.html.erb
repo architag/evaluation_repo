@@ -19,9 +19,9 @@
 <div class="profile_info">
   <h2>Tickets</h2>
   <hr>
-  <% if @customer.tickets.count != 0 %>
+  <% if @tickets.count != 0 %>
     <div class="panels row">
-      <% @customer.tickets.each do |ticket| %>
+      <% @tickets.each do |ticket| %>
           <div class="panel col-md-3">
             <div class="panel-img-top center">
               <%= image_tag ticket.image.display_image if ticket.image.image_file.attached? %>
@@ -36,7 +36,10 @@
           </div>
       <% end %>
     </div>
+    <div class="center">
+      <%= will_paginate @tickets %>
+    </div>
   <% else %>
-    No Tickets Found
+    <h3>No Tickets Found</h3>
   <% end %>
 </div>
