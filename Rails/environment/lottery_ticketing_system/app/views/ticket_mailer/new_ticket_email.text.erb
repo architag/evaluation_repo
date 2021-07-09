@@ -1,0 +1,12 @@
+Hi <%= @ticket.customer.name %>,
+Thank you for purchasing a Lottery Ticket! Here is your receipt.
+
+Purchase details<br>
+--------------------------
+
+<%= image_tag url_for(@ticket.image.display_image) %>
+Transaction Status: <%= @ticket.purchase.status.capitalize %>
+Receipt No: <%= @ticket.purchase.receipt_no %>
+Ticket No: <%= @ticket.ticket_no %>
+Prize Type: <%= @ticket.type.split("Ticket")[0] %>
+Expiration Date: <%= @ticket.expiration_date %>
