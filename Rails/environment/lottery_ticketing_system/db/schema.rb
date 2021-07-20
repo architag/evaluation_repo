@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_190736) do
+ActiveRecord::Schema.define(version: 2021_07_19_090016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,34 +45,48 @@ ActiveRecord::Schema.define(version: 2021_06_24_190736) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
-    t.date "last_won_on"
+    t.datetime "last_won_on"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "authentication_token"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "age"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "type"
-    t.integer "ticket_id"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
+  end
+
+  create_table "purchases", force: :cascade do |t|
     t.integer "customer_id"
+    t.integer "ticket_id"
+    t.integer "status", default: 0
+    t.string "receipt_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "customer_id"
-    t.date "expiration_date"
-    t.string "prize_type"
-    t.string "receipt_no"
+    t.string "type"
+    t.boolean "is_valid", default: false
+    t.datetime "expiration_date"
+    t.integer "position_won", default: 0
+    t.string "ticket_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_valid"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

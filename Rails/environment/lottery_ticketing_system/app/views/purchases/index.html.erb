@@ -1,0 +1,45 @@
+<h2>Your Purchases</h2>
+
+<%= search_form_for(@q, url: purchases_index_path) do |f| %>
+  <%= f.label :ticket_type %>
+  <%= f.select(:ticket_type_eq, [['Cash', 'CashTicket'], ['Utility', 'UtilityTicket']], { include_blank: true }, {class: "form-control" }) %>
+  <%= f.label :status %>
+  <%= f.select(:status_eq, options_for_select(Purchase.statuses.map {|k, v| [k.capitalize, v]}, f.object.status_eq), { include_blank: true }, {class: "form-control" }) %>
+  <br>
+  <%= link_to "Clear", request.path, class: "btn btn-default" %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+
+<p>
+  <% if @purchases.count != 0 %>
+    <table class="table table-striped table-hover">
+      <tr>
+        <th> <%= sort_link(@q, :name, "Customer Name") %> </th>
+        <th> <%= sort_link(@q, :receipt_no, "Receipt No") %> </th>
+        <th> <%= sort_link(@q, :ticket_ticket_no, "Ticket No") %> </th>
+        <th> <%= sort_link(@q, :ticket_type, "Prize Type") %> </th>
+        <th> <%= sort_link(@q, :ticket_is_valid, "Status") %> </th>
+        <th> <%= sort_link(@q, :status, "Transaction Status") %> </th>
+        <th> <%= sort_link(@q, :created_at, "Purchase Date") %> </th>
+      </tr>
+
+      <% @purchases.each do |purchase| %>   
+        <tr>
+          <td><%= purchase.customer.name %></td>
+          <td><%= purchase.receipt_no %></td>
+          <td><%= purchase.ticket.ticket_no %></td>
+          <td><%= purchase.ticket.type.split("Ticket")[0] %></td>
+          <td><%= status(purchase.ticket.position_won, purchase.ticket.is_valid) %></td>
+          <td><%= purchase.status.capitalize %></td>
+          <td><%= purchase.created_at %></td>
+        </tr>       
+      <% end %>
+    </table>
+    <div class="center">
+      <%= will_paginate @purchases %>
+    </div>
+  <% else %>
+    <h3>No Receipts Found</h3>
+  <% end %>
+</p>

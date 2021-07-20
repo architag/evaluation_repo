@@ -1,0 +1,14 @@
+<div class="jumbotron center">
+  <div id="home">
+    <h2>Welcome to The Lottery<br>Ticketing System</h2><br>
+    <div id="home_div">
+      <h3>3 Lucky Winners Everyday between 11:30PM and 12:00AM!</h3><br>
+      <% if !customer_signed_in? %>
+        <h3>Register Now to have a chance of <br>winning either Cash or Utilities</h3>
+        <div id="home_signup">
+          <%= link_to "Sign up now!", new_customer_registration_path, class: "btn btn-lg btn-primary" %> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

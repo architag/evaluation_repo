@@ -4,7 +4,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
   def change
     create_table :customers do |t|
       t.string :name
-      t.date :last_won_on
+      t.datetime :last_won_on
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -15,6 +15,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
       ## Rememberable
       t.datetime :remember_created_at
+      t.string :authentication_token
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -24,9 +25,9 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.string   :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
