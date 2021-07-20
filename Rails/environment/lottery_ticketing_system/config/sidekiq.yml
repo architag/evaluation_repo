@@ -1,0 +1,13 @@
+# config/sidekiq.yml
+---
+# :verbose: false
+:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+# :timeout: 30
+:queues:
+  - default
+  - mailers
+:schedule:
+  TicketJob:
+    cron: '30 22 * * *'
+    queue: scheduler
+    enabled: true

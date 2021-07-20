@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @ticket.customer.name %>,<br>Congratulation! You won the Lottery!.</p>
+    <p>
+    Prize details<br>
+    --------------------------
+    </p>
+    <%= image_tag url_for(@ticket.image.display_image) %><br>
+    <p>Ticket No: <%= @ticket.ticket_no %></p>
+    <p>Prize Type: <%= @ticket.type.split("Ticket")[0] %></p>
+    <p>Position Won: 
+      <% if @ticket.position_won == 1 %>
+        1st Place<br>
+        <strong>NOTE:</strong> 1st Place Lottery Winners cannot win again for 3 months.
+      <% elsif @ticket.position_won == 2 %>
+        2nd Place
+      <% else %>
+        3rd Place
+      <% end %>
+    </p>
+  </body>
+</html>

@@ -4,8 +4,7 @@ module CustomersHelper
   end
   
   def last_won(last_won_on)
-    return "Never Won" if last_won_on == nil
-    last_won_on
+    "Cannot win again till #{last_won_on + 3.months}" if last_won_on != nil
   end
 
   def validity_status(status)

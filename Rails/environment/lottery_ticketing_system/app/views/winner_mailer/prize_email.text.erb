@@ -1,0 +1,17 @@
+Hi <%= @ticket.customer.name %>,
+Congratulation! You won the Lottery!
+
+Prize details
+--------------------------
+
+<%= image_tag url_for(@ticket.image.display_image) %>
+Ticket No: <%= @ticket.ticket_no %>
+Prize Type: <%= @ticket.type.split("Ticket")[0] %>
+Position Won: <% if @ticket.position_won == 1 %>
+1st Place
+NOTE: 1st Place Lottery Winners cannot win again for 3 months.
+<% elsif @ticket.position_won == 2 %>
+2nd Place
+<% else %>
+3rd Place
+<% end %>

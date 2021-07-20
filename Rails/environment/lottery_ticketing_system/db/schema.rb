@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_082252) do
+ActiveRecord::Schema.define(version: 2021_07_19_090016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_082252) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "age"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -80,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_082252) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "type"
-    t.boolean "is_valid", default: true
+    t.boolean "is_valid", default: false
     t.datetime "expiration_date"
     t.integer "position_won", default: 0
     t.string "ticket_no"
