@@ -1,0 +1,128 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* MIXINS and VARIABLES */
+$gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* UNIVERSAL */
+body {
+  padding-top: 50px;
+}
+
+.jumbotron {
+  background-color: #cee5ed;
+  margin-top: 50px;
+  min-height: 600px;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.alert {
+  margin-top: 10px;
+}
+
+/* HEADER */
+#logo {
+  padding-top: 6px;
+}
+
+/* FOOTER */
+footer {
+  vertical-align: bottom;
+  margin: 45px 25px 20px 0;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+/* HOME */
+#home {
+  margin-top: 80px;
+}
+
+#home_signup {
+  margin-top: 40px;
+}
+
+/* SIGNUP AND LOGIN */
+.form_div_inner {
+  padding-top: 30px;
+  width: 40%;
+  margin: auto;
+}
+
+.errors {
+  padding-left: 70px;
+}
+
+
+/* PROFILE */
+#customer_data {
+  display: inline-flex;
+  margin: 0 20px 0 20px;
+}
+
+.details {
+  font-size: 15px;
+}
+
+.panel {
+  border: 2px solid black;
+}
+
+.customer_tickets {
+  color: #D1D1D1;
+  width: 250px;
+  margin: 10px 21px;
+  background-color: #0c2d48;
+}
+
+/* TICKETS */
+#buy-tickets {
+  display: inline-flex;
+  margin-top: 50px;
+}
+
+.ticket {
+  width: 350px;
+  margin: 20px 40px;
+  padding: 40px 20px;
+  background-color: #17568a;
+  color: white;
+}
+
+.ticket_button {
+  margin: 20px;
+}
+
+/* PURCHASES */
+.table {
+  margin-top: 30px;
+}
