@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # acts_as_token_authenticatable
+  acts_as_token_authenticatable
   has_one :image, as: :imageable, dependent: :destroy
   has_many :purchases
   has_many :tickets, through: :purchases

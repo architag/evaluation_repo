@@ -1,7 +1,7 @@
 class CashTicketsController < ApplicationController
   def create
-    @ticket = CashTicket.create
-    if DateTime.now.between?(Time.parse("12AM UTC"), Time.parse("11:30PM UTC"))  
+    if DateTime.now.between?(Time.parse("12AM UTC"), Time.parse("11:30PM UTC")) 
+      @ticket = CashTicket.new 
       if @ticket.save
         current_customer.tickets << @ticket
         flash.now[:notice] = "Your purchase was successful! Your receipt will be emailed to you shortly."

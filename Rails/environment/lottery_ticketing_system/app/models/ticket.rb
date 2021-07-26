@@ -2,7 +2,8 @@ class Ticket < ApplicationRecord
   has_one :image, as: :imageable, dependent: :destroy
   has_one :purchase
   has_one :customer, through: :purchase
-  before_create :set_expiration_date, :set_ticket_no, :set_image
+  after_validation :set_expiration_date, :set_ticket_no
+  before_create :set_image
   after_create :set_validity
   # after_commit :set_image
 
